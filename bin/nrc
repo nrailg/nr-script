@@ -1,12 +1,34 @@
 #!/bin/bash
 
-if [ $1 ]
-then
-  if [ $1 = 'ng' ]; then
-    ls --color=auto -la;
-  else
-    echo 'Unknown command, Aborted!';
-  fi
-else
-  echo 'Usage: nrc ${COMMAND}';
+NGINX_PATH=~/workspace/nginx-1.0.14/objs
+NGINX_BIN=nginx
+
+nginx_control() {
+  action=$1;
+
+  case $action in
+    "s")
+      $NGINX_PATH/$NGINX_BIN;
+      ;;
+    "k")
+      killall $NGINX_BIN;
+      ;;
+  esac
+}
+
+COMMAND=$1
+
+if [ ! $COMMAND ]; then
+  echo 'Usage: nrc ${COMMAND} ${ARG}';
+  exit
 fi
+
+case $COMMAND in
+  "ng")
+    action=$2;
+    nginx_control $action;
+    ;;
+  *)
+    echo 'Unknown command, nrc aborted.'
+    ;;
+esac

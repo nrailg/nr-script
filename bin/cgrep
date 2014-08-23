@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+grep --color=always -Hn "$1" `find -name '*.[chsS]'`

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$2" == "all" ]; then
+  grep --color=always -Hn "$1" `find -name '*.rb'` | grep -v "spec"
+else
+  grep --color=always -Hn "$1" `find -name '*.rb'` | grep -v "spec" | grep -v "vendor"
+fi
