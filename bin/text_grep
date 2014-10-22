@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+import os, sys
+
+_ignore_postfixes = [
+    ".flv", ".mp3", ".mp4", ".flac", ".iso", ".gz", ".deb", ".bz2",
+    ".xz", ".doc", ".pdf", ".png", ".jpg", ".wmv", ".torrent",
+    ".o", ".out", ".c", ".cc", ".h", ".hpp", ".cpp", "-runtime",
+]
+
+_text_file_size_max = 5000 # In byte
+
+def _should_skip_root(root):
+    return False
+
+def _is_text(fname):
+    for postfix in _ignore_postfixes:
+        if fname.endswith(postfix):
+            return False
+    return True
+
+def _extract_text_files(root, files):
+    text_files = []
+    for f in [ f for f in files if _is_text(f) ]:
+        fpath = os.path.join(root, f)
+        try:
+            if os.path.getsize(fpath) < _text_file_size_max:
+                text_files.append(fpath)
+        except:
+            pass
+    return text_files
+
+def _execute_grep(cmd):
+    try:
+        proc = os.popen(cmd)
+        rv = proc.read()
+        if '' != rv:
+            sys.stdout.write(rv)
+    finally:
+        proc.close()
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        sys.stderr.write('Usage: text_grep $(PATTERN) $(TARGET_DIR)\n')
+        exit(0)
+    _command_format = 'grep -Hn --color=always ' + sys.argv[1] + ' "%s"'
+
+    if len(sys.argv) < 3:
+        _target_dir = '.'
+    else:
+        _target_dir = sys.argv[2]
+
+    for root, dirs, files in os.walk(_target_dir):
+        if _should_skip_root(root):
+            continue
+
+        text_files = _extract_text_files(root, files)
+        for tf in text_files:
+            cmd = _command_format % tf
+            _execute_grep(cmd)
