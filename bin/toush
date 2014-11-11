@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+if [ $# = 0 ]; then
+  echo 'Usage: toush ${shell-name}'
+  exit 0
+fi
+
+if [ ! -e "$1" ]; then
+  echo '#!/usr/bin/env bash' > $1
+  echo '# -*- encoding: utf-8 -*-' >> $1
+  echo '' >> $1
+  chmod a+x $1
+else
+  echo 'Illegal operation!'
+fi

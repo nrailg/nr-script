@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+if [ $# = 0 ]; then
+  VBoxManage startvm nr-linux-vm --type headless
+
+elif [ "$1" = 'off' ]; then
+  VBoxManage controlvm nr-linux-vm poweroff
+fi
