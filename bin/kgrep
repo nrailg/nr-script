@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+cd ..
+grep --color=always -Hn "$1" `cat ktagf | tr '\n' ' '`
