@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# -*- encoding: utf-8 -*-
-
-fakeroot make-kpkg --initrd --revision=1.0 kernel_image

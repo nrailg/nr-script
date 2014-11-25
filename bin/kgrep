@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 # -*- encoding: utf-8 -*-
 
-cd ..
-grep --color=always -Hn "$1" `cat ktagf | tr '\n' ' '`
+COLOR=always
+
+KTAGF='../ktagf'
+
+while getopts 'cf:' opt; do
+  case "$opt" in
+    c)
+      COLOR=never
+      ;;
+    f)
+      KTAGF="$OPTARG"
+      ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+grep --color=$COLOR -Hn "$1" `cat "$KTAGF" | tr '\n' ' '`
