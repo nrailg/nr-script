@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+FMT='%m-%d'
+date +$FMT

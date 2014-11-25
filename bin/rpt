@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+fname="report-`today`.markdown"
+
+if [ -e "$fname" ]; then
+  echo 'Report already exists'
+  exit -1
+fi
+
+touch $fname
+echo 'Progress Report'  >> $fname
+echo '==============='  >> $fname
+echo "Junyu Wu, `date`" >> $fname
