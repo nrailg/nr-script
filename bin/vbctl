@@ -2,8 +2,11 @@
 # -*- encoding: utf-8 -*-
 
 if [ $# = 0 ]; then
-  VBoxManage startvm nr-linux-vm --type headless
+  vboxmanage startvm l-vm
+
+elif [ "$1" = 'nog' ]; then
+  vboxmanage startvm l-vm --type headless
 
 elif [ "$1" = 'off' ]; then
-  VBoxManage controlvm nr-linux-vm poweroff
+  vboxmanage controlvm l-vm poweroff
 fi
