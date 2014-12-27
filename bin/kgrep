@@ -3,7 +3,7 @@
 
 COLOR=always
 
-KTAGF='../ktagf'
+KTAGF='../REL-KTAGF'
 
 while getopts 'cf:' opt; do
   case "$opt" in
