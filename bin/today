@@ -2,4 +2,13 @@
 # -*- encoding: utf-8 -*-
 
 FMT='%m-%d'
+
+while getopts "y" opt; do
+	case "$opt" in
+	y)
+		FMT='%Y-%m-%d'
+		;;
+	esac
+done
+
 date +$FMT
