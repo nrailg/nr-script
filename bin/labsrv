@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+USERNAME='wjy';
+IPADDR='192.168.0.102';
+
+if [ $# -eq 0 ]; then
+	ssh "${USERNAME}@${IPADDR}";
+
+elif [ "$1" == 'push' ]; then
+	scp $2 "${USERNAME}@${IPADDR}":~/tmphold;
+
+elif [ "$1" == 'pull' ]; then
+	echo 'NOT IMPLEMENTED YET!';
+fi

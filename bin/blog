@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# -*- encoding: utf-8 -*-
-
-touch "_posts/`today -y`-$1.markdown"
