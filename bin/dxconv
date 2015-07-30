@@ -7,5 +7,5 @@ if __name__ == '__main__':
     arg = sys.argv[1]
     if arg.startswith('0x'):
         print int(arg, 16)
-    else
-        print int(arg, 10)
+    else:
+        print hex(int(arg))
