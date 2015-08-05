@@ -2,21 +2,22 @@ nr-script
 =========
 
 # Introduction
-Misc system managing tools for myself. I wrote this document because I think
-someone might need this, perhaps...
+Misc & simple tools for myself, which help managing OS, searching in files,
+converting string format and etc.
 
-# Pre-requirement
-* Unix like OS
-* Bash / zsh
+# Pre-requirements
 * GNU coreutils
-* ....
+* realpath
+* python 2.7
 
 # Functions
-* cgrep: grep all c, h, asm files
-* orz: orz...
-* pygrep: grep all python files
-* rbgrep: grep all ruby files, and this sucks as much as r\*\*\y itself.
-* rpt: make a report today.
-* today: date
-* toush: touch a executable shell
-* ....
+* cgrep: grep c, h, s, S files
+* cppgrep: grep cpp, cxx, hpp files
+* pygrep: grep py files
+* makegrep: grep makefiles
+* kgrep: grep in linux kernel
+* ktagf-gen-3.13: generate file list for linux 3.13(excluding drivers and tests)
+* dxb: print hex, decimal, and binary form of given number
+* nrapt: install debs I need from apt repo
+* today: print date today
+* toush: create empty shell file
