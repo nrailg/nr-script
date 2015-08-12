@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+import sys, os
+
+if __name__ == '__main__':
+    arg = sys.argv[1]
+
+    if arg.endswith('gb'):
+        b = int(arg[0:-2]) * 1024 * 1024
+
+    elif arg.endswith('kb'):
+        b = int(arg[0:-2]) * 1024
+
+    elif arg.endswith('b'):
+        b = int(arg[0:-1])
+
+    else:
+        print 'oops!'
+
+    kb = b / 1024.
+    gb = b / 1024. / 1024.
+
+    print '%d byte, %f kb, %f gb.' % (b, kb, gb)
