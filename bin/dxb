@@ -3,17 +3,21 @@
 
 import sys
 
-if __name__ == '__main__':
-    arg = sys.argv[1]
-    if arg.startswith('0x'):
-        val = int(arg, 16)
-    elif arg.startswith('0b'):
-        val = int(arg, 2)
+def dxb(istr):
+    if istr.startswith('0x'):
+        val = int(istr, 16)
+    elif istr.startswith('0b'):
+        val = int(istr, 2)
     else:
-        val = int(arg)
+        val = int(istr)
 
     decf = str(val)
     hexf = hex(val)
     binf = bin(val)
+    return (decf, hexf, binf)
+
+if __name__ == '__main__':
+    arg = sys.argv[1]
+    (decf, hexf, binf) = dxb(arg)
 
     print '%s %s %s' % (decf, hexf, binf)
