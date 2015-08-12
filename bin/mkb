@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+import sys, os
+
+if __name__ == '__main__':
+    arg = sys.argv[1]
+
+    b = int(arg[0:-2]) * 1024
+    if arg.endswith('mb'):
+        b = b * 1024
+
+    print '%d, %s, %s.' % (b, hex(b), bin(b))
