@@ -18,7 +18,7 @@ apt-get autoremove -y libreoffice-avmedia-backend-gstreamer             \
 	libreoffice-gnome libreoffice-l10n-zh-cn libreoffice-gtk        \
 	libreoffice-l10n-zh-tw
 
-apt-get install -y vim git g++ gdb clang libclang-dev cscope \
+apt-get install -y vim git g++ gdb clang-3.6 libclang-3.6-dev cscope \
 	exuberant-ctags
 
 apt-get install -y zsh guake autojump tree trash-cli checkinstall cmake \
