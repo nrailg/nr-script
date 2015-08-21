@@ -8,7 +8,7 @@ if [ $# -eq 0 ]; then
 	ssh "${USERNAME}@${IPADDR}";
 
 elif [ "$1" == 'push' ]; then
-	scp $2 "${USERNAME}@${IPADDR}":~/downloads;
+	scp $2 "${USERNAME}@${IPADDR}":~/Downloads/;
 
 elif [ "$1" == 'pull' ]; then
 	echo 'NOT IMPLEMENTED YET!';
