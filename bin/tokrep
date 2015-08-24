@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+# TODO: shall not replace token in comments
+
+# -d $DIR
+# -p $POSTFIX
+
+DIR='.';
+POSTFIX='*.[chsS]';
+
+while getopts "d:p:" opt; do
+	case "${opt}" in
+	d)
+		DIR=${OPTARG};
+		;;
+	d)
+		if [ "${OPTARG}" = "c" ]; then
+			POSTFIX='*.[chsS]';
+		fi
+		if [ "${OPTARG}" = "cxx" ]; then
+			POSTFIX='*.[ch][xp][xp]';
+		fi
+		if [ "${OPTARG}" = "ld" ]; then
+			POSTFIX='*.[ld]';
+		fi
+		;;
+	*)
+		;;
+	esac
+done
+shift $((OPTIND-1))
+
+find "$DIR" -name "$POSTFIX" -exec sed -i'' "s/\<$1\>/$2/g" {} +
