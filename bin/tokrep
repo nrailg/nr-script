@@ -9,10 +9,14 @@
 DIR='.';
 POSTFIX='*.[chsS]';
 
-while getopts "d:p:" opt; do
+while getopts "d:f:p:" opt; do
 	case "${opt}" in
 	d)
 		DIR=${OPTARG};
+		;;
+	f)
+		DIR='';
+		FILE="${OPTARG}";
 		;;
 	d)
 		if [ "${OPTARG}" = "c" ]; then
@@ -31,4 +35,8 @@ while getopts "d:p:" opt; do
 done
 shift $((OPTIND-1))
 
-find "$DIR" -name "$POSTFIX" -exec sed -i'' "s/\<$1\>/$2/g" {} +
+if [ "$DIR" ]; then
+	find "$DIR" -name "$POSTFIX" -exec sed -i'' "s/\<$1\>/$2/g" {} +
+else
+	sed -i'' "s/\<$1\>/$2/g" "$FILE"
+fi
