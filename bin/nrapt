@@ -24,7 +24,7 @@ apt-get install -y vim git g++ gdb clang-3.6 libclang-3.6-dev cscope \
 
 # Misc
 apt-get install -y zsh guake autojump tree trash-cli checkinstall cmake \
-	unrar realpath xorriso qemu bvi filezilla
+	unrar realpath xorriso qemu bvi filezilla ssh rsync
 
 # GUI
 apt-get install -y libpoppler-qt4-4 gir1.2-gconf-2.0  python-compizconfig \
