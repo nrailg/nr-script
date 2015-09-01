@@ -8,7 +8,7 @@ while getopts "s:" opt; do
 	case "${opt}" in
 	s)
 		if [ "${OPTARG}" = "2" ]; then
-			USERNAME='nr';
+			USERNAME='ding';
 			IPADDR='120.88.10.47';
 		fi
 		;;
