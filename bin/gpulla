@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+repos=(~ ~/'.vim/bundle/nr-snippets' ~/'.vim/bundle/vim-maps' '/opt/nr-script');
+
+for i in ${repos[@]}; do
+	cd "$i";
+	echo "Updating `pwd`...";
+	git checkout master;
+	git pull origin master;
+	echo '';
+done
