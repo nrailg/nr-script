@@ -4,6 +4,20 @@
 USERNAME='wjy';
 IPADDR='192.168.0.102';
 
+while getopts "s:" opt; do
+	case "${opt}" in
+	s)
+		if [ "${OPTARG}" = "2" ]; then
+			USERNAME='ding';
+			IPADDR='120.88.10.47';
+		fi
+		;;
+	*)
+		;;
+	esac
+done
+shift $((OPTIND-1))
+
 if [ $# -eq 0 ]; then
 	ssh "${USERNAME}@${IPADDR}";
 
