@@ -19,7 +19,7 @@ apt-get autoremove -y libreoffice-avmedia-backend-gstreamer             \
 	libreoffice-l10n-zh-tw
 
 # Coding basic
-apt-get install -y vim git g++ gdb clang-3.6 libclang-3.6-dev cscope \
+apt-get install -y vim git g++ gdb clang libclang-dev cscope \
 	exuberant-ctags glibc-doc manpages-posix-dev openjdk-7-jdk ant
 
 # Misc
