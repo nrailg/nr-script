@@ -25,5 +25,5 @@ elif [ "$1" == 'push' ]; then
 	scp $2 "${USERNAME}@${IPADDR}":~/Downloads/;
 
 elif [ "$1" == 'pull' ]; then
-	echo 'NOT IMPLEMENTED YET!';
+	scp "${USERNAME}@${IPADDR}":"$2" ~/Downloads/;
 fi
