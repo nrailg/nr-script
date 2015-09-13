@@ -26,4 +26,7 @@ elif [ "$1" == 'push' ]; then
 
 elif [ "$1" == 'pull' ]; then
 	scp "${USERNAME}@${IPADDR}":"$2" ~/Downloads/;
+
+elif [ "$1" == 'clone' ]; then
+	git clone "ssh://${USERNAME}@${IPADDR}/$2";
 fi
