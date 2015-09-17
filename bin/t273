@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+if [ $TMUX ]; then
+	tmux splitw -h -p30
+else
+	tmux new -d
+	tmux splitw -h -p30
+	tmux selectp -t 0
+	tmux a
+fi
