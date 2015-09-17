@@ -7,5 +7,5 @@ else
 	tmux new -d
 	tmux splitw -h -p30
 	tmux selectp -t 0
-	tmux a
+	tmux -2 a
 fi
