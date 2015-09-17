@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# -*- encoding: utf-8 -*-
-
-tmux splitw -h -p80 "vim $1"
