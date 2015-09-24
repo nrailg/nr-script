@@ -30,7 +30,7 @@ apt-get install -y zsh guake autojump tree trash-cli checkinstall cmake \
 apt-get install -y libpoppler-qt4-4 gir1.2-gconf-2.0  python-compizconfig \
 	gksu fcitx libncurses5-dev libjpeg62 \
 	libqt5webkit5-dev qttools5-dev-tools qt5-default \
-	discount libmarkdown2-dev libhunspell-dev vlc steadyflow
+	discount libmarkdown2-dev libhunspell-dev
 
 # Fonts
 apt-get install -y fonts-wqy-zenhei
