@@ -2,15 +2,12 @@
 # -*- encoding: utf-8 -*-
 
 USERNAME='wjy';
-IPADDR='192.168.0.102';
+IPADDR='222.200.185.12';
+PORT='9501';
 
 while getopts "s:" opt; do
 	case "${opt}" in
 	s)
-		if [ "${OPTARG}" = "2" ]; then
-			USERNAME='ding';
-			IPADDR='120.88.10.47';
-		fi
 		;;
 	*)
 		;;
@@ -19,13 +16,13 @@ done
 shift $((OPTIND-1))
 
 if [ $# -eq 0 ]; then
-	ssh "${USERNAME}@${IPADDR}";
+	ssh -p ${PORT} "${USERNAME}@${IPADDR}";
 
 elif [ "$1" == 'push' ]; then
-	scp $2 "${USERNAME}@${IPADDR}":~/Downloads/;
+	scp -p ${PORT} $2 "${USERNAME}@${IPADDR}":~/Downloads/;
 
 elif [ "$1" == 'pull' ]; then
-	scp "${USERNAME}@${IPADDR}":"$2" ~/Downloads/;
+	scp -p ${PORT} "${USERNAME}@${IPADDR}":"$2" ~/Downloads/;
 
 elif [ "$1" == 'clone' ]; then
 	git clone "ssh://${USERNAME}@${IPADDR}/$2";
