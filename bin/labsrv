@@ -19,7 +19,7 @@ if [ $# -eq 0 ]; then
 	ssh -p ${PORT} "${USERNAME}@${IPADDR}";
 
 elif [ "$1" == 'push' ]; then
-	scp -P ${PORT} $2 "${USERNAME}@${IPADDR}":~/Downloads/;
+	scp -P ${PORT} "$2" "${USERNAME}@${IPADDR}":~/Downloads/;
 
 elif [ "$1" == 'pull' ]; then
 	scp -P ${PORT} "${USERNAME}@${IPADDR}":"$2" ~/Downloads/;
