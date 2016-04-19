@@ -6,7 +6,7 @@ else
 	search_dir=".";
 fi
 
-patterns=('*.[ch]pp' '*.h' '*.cc' '*.cxx');
+patterns=('*.[ch]pp' '*.h' '*.cc' '*.cxx' '*.cu');
 
 for ((i = 0; i < ${#patterns[@]}; i++)); do
 	files=`find "${search_dir}" -name "${patterns[$i]}"`;
