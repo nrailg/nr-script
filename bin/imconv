@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import cv2
+
+if len(sys.argv) != 5:
+  print "Usage: prg SRC_DIR DST_DIR POSTFIX NEW_POSTFIX"
+  sys.exit(0)
+
+prg, srcdir, dstdir, postfix, new_postfix = sys.argv
+
+for imname in os.listdir(srcdir):
+  im = cv2.imread(srcdir + '/' + imname, cv2.IMREAD_COLOR)
+  name = dstdir + '/' + imname.rstrip(postfix) + new_postfix
+  cv2.imwrite(name, im)
