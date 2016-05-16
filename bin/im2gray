@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import cv2
+
+if len(sys.argv) != 3:
+  print 'Usage: prg SRC DST'
+  sys.exit(0)
+
+iname = sys.argv[1]
+oname = sys.argv[2]
+
+im = cv2.imread(iname, cv2.IMREAD_GRAYSCALE)
+cv2.imwrite(oname, im)
