@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # -*- encoding: utf-8 -*-
 
+# Dell: 222.200.185.12
+# SuperCloud: 222.200.185.29
+
 USERNAME='wjy';
 IPADDR='222.200.185.12';
 PORT='9501';
