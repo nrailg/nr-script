@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+from sys import argv
+from os import walk
+from os.path import join
+from sets import Set
+
+def file_list(d):
+    if not d.endswith('/'):
+        d = d + '/'
+    l = []
+    for (dirpath, dirnames, fnames) in walk(d):
+        for fname in fnames:
+            l.append(join(dirpath, fname).lstrip(d))
+    return l
+
+flist = file_list(argv[1]) # Fullset
+fset = Set(file_list(argv[2])) # Subset
+for f in flist:
+    if f in fset:
+        print "%s : 1" % f
+    else:
+        print "%s : 0" % f
