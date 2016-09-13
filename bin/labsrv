@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 # -*- encoding: utf-8 -*-
 
-# Dell: 222.200.185.12
-# SuperCloud: 222.200.185.29
-
-USERNAME='wjy';
-IPADDR='222.200.185.12';
-PORT='9501';
-
 while getopts "s:" opt; do
 	case "${opt}" in
 	s)
@@ -18,15 +11,23 @@ while getopts "s:" opt; do
 done
 shift $((OPTIND-1))
 
+USERNAMES=('wjy' 'nr' 'wjy' 'nr' 'nr')
+IPADDRS=('192.168.0.102' '192.168.0.102' '222.200.185.12' '222.200.185.12' '222.200.185.29')
+PORTS=('22' '22' '9501' '9503' '22')
+
 if [ $# -eq 0 ]; then
-	ssh -p ${PORT} "${USERNAME}@${IPADDR}";
-
-elif [ "$1" == 'push' ]; then
-	scp -P ${PORT} "$2" "${USERNAME}@${IPADDR}":~/Downloads/;
-
-elif [ "$1" == 'pull' ]; then
-	scp -P ${PORT} "${USERNAME}@${IPADDR}":"$2" ~/Downloads/;
-
-elif [ "$1" == 'clone' ]; then
-	git clone "ssh://${USERNAME}@${IPADDR}/$2";
+	for ((i=0; i<${#USERNAMES[@]}; i++)); do
+		username=${USERNAMES[i]}
+		ipaddr=${IPADDRS[i]}
+		port=${PORTS[i]}
+		printf "$i: USERNAME=%-4s IPADDR=%-16s PORT=$port\n" $username $ipaddr
+	done
+	read input
+else
+	input="$1"
 fi
+
+USERNAME=${USERNAMES[input]}
+IPADDR=${IPADDRS[input]}
+PORT=${PORTS[input]}
+ssh -p ${PORT} "${USERNAME}@${IPADDR}";
