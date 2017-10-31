@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+TMPDIR="${HOME}/opt/nr-script/tmp"
+if [ ! -d "$TMPDIR" ]; then
+	mkdir -p "$TMPDIR"
+fi
+
+prog="$1"
+progbn=$(basename $prog)
+fnamet="${TMPDIR}/${USER}_${progbn}_XXXXXX"
+binn=$(mktemp -u ${fnamet})
+
+ln -s `which "$prog"` "$binn"
+$binn "${@:2}"
