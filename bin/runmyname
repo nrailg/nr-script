@@ -8,7 +8,8 @@ fi
 
 prog="$1"
 progbn=$(basename $prog)
-fnamet="${TMPDIR}/${USER}_${progbn}_XXXXXX"
+myname=$(cat ${HOME}/opt/nr-script/etc/USER)
+fnamet="${TMPDIR}/${myname}_${progbn}_XXXXXX"
 binn=$(mktemp -u ${fnamet})
 
 ln -s `which "$prog"` "$binn"
