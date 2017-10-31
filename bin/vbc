@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# -*- encoding: utf-8 -*-
-
-ssh root@192.168.56.101
