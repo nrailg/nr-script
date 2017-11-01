@@ -12,7 +12,6 @@ etc.
 # Installation
 ```bash
 git clone https://github.com/nrailgun/nr-script.git
-cd nr-scritps
 ./nr-scritps/install.sh
 ```
 
