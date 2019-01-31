@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ "$2" ]; then
+	search_dir="$2"
+else
+	search_dir="."
+fi
+
+grep --color=always -Hn "$1" `find "${search_dir}" -name '*.lua'`
