@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+awk "NR >= $2 && NR <= $3" "$1"
