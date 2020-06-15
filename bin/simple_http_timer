@@ -6,15 +6,17 @@ import sys, time, json, BaseHTTPServer
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 	def do_HEAD(s):
 		s.send_response(200)
-		s.send_header('Content-type', 'application/json')
+		s.send_header('Content-Type', 'application/json')
 		s.end_headers()
 	def do_GET(s):
-		s.send_response(200)
-		s.send_header('Content-type', 'application/json')
-		s.end_headers()
 		d = {
 			'unix_time': int(time.time()),
 		}
+		ds = json.dumps(d)
+		s.send_response(200)
+		s.send_header('Content-Type', 'application/json; charset=utf-8')
+		s.send_header('Content-Length', len(ds))
+		s.end_headers()
 		s.wfile.write(json.dumps(d))
 
 if __name__ == '__main__':
