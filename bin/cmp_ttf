@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+vimdiff ~/playground/ttf-weps/ttensorflow/tensorflow/$1 ~/playground/tensorflow/tensorflow/$1

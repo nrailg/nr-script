@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+
+PATTERN=$1
+FILE_PATTERN=$2
+
+if [ ! "$FILE_PATTERN" ]; then
+  FILE_PATTERN="*.proto"
+fi
+
+grep --color=always -n "$PATTERN" `find -name "$FILE_PATTERN"`
