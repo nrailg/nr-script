@@ -2,6 +2,7 @@
 
 readonly TEAM=$1
 readonly MODE=$2
+readonly SRC=$3
 
 if [ $TEAM == "vision1" ]; then
   readonly ddir='/mnt/wfs/mmshanghai8wfssh/project_mm-base-vision-tj/nrwu/work'
@@ -17,11 +18,13 @@ fi
 if [ $MODE == "full" ]; then
   rsync -av --progress \
     --exclude .git --exclude '*.swp' \
-    `pwd` $ddir
+    $SRC $ddir
 else
-  _wdir=`basename $PWD`
-  for f in `git diff --name-only`; do
-    to=$ddir/$_wdir/$f
+  readonly wdir=`basename $SRC`
+  cd $SRC
+  readonly fs=`git diff --name-only`
+  for f in $fs; do
+    to=$ddir/$wdir/$f
     todir=`dirname $to`
     echo "cp $f $to"
     mkdir -p $todir
