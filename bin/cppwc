@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [ "$1" ]; then
+	search_dir="$1";
+else
+	search_dir=".";
+fi
+
+patterns=('*.c' '*.[ch]pp' '*.h' '*.cc' '*.cxx' '*.cu');
+
+for ((i = 0; i < ${#patterns[@]}; i++)); do
+	files=`find "${search_dir}" -name "${patterns[$i]}"`;
+	if [ ! "$files" ]; then
+		continue;
+	fi
+  wc -l $files;
+done

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rsync -av --progress \
+  --exclude .git \
+  --exclude '*.swp' \
+  `pwd` /mnt/nanjing3cephfs/mm-base-plt2/nrwu/

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+readonly TEAM=$1
+readonly MODE=$2
+
+if [ $TEAM == "vision1" ]; then
+  readonly ddir='/mnt/wfs/mmshanghai8wfssh/project_mm-base-vision-tj/nrwu/work'
+else
+  echo 'unknown team'
+  exit 0
+fi
+
+if [ "$MODE" != "full" ] && [ "$MODE" != "incr" ]; then
+  echo 'unknown cp mode'
+fi
+
+if [ $MODE == "full" ]; then
+  rsync -av --progress \
+    --exclude .git --exclude '*.swp' \
+    `pwd` $ddir
+else
+  _wdir=`basename $PWD`
+  for f in `git diff --name-only`; do
+    to=$ddir/$_wdir/$f
+    todir=`dirname $to`
+    echo "cp $f $to"
+    mkdir -p $todir
+    cp $f $to
+  done
+fi
