@@ -16,9 +16,7 @@ if [ "$MODE" != "full" ] && [ "$MODE" != "incr" ]; then
 fi
 
 if [ $MODE == "full" ]; then
-  rsync -av --progress \
-    --exclude .git --exclude '*.swp' \
-    $SRC $ddir
+  rsync -rv --checksum --progress --exclude .git --exclude '*.swp' $SRC $ddir
 else
   readonly wdir=`basename $SRC`
   cd $SRC
